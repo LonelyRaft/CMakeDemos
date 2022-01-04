@@ -1,0 +1,62 @@
+{
+    "tasks": [
+        {
+            "type": "process",
+            "label": "build",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "config"
+            ],
+            "detail": "CMake 构建"
+        },
+        {
+            "type": "process",
+            "label": "config",
+            "command": "cmake",
+            "linux": {
+                "args": [
+                    "-S",
+                    "./",
+                    "-B",
+                    "build",
+                ],
+            },
+            "windows":{
+                "args": [
+                    "-S",
+                    "./",
+                    "-B",
+                    "build",
+                    "-G",
+                    "MinGW Makefiles"
+                ],
+            },
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "CMake 配置"
+        }
+    ],
+    "version": "2.0.0"
+}
