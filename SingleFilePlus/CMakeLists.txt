@@ -6,8 +6,15 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED true)
 # 设置编译类型 debug or release
 set(CMAKE_BUILD_TYPE "Debug")
+# 设置生成的项目类型
+# set(CMAKE_MAKE_PROGRAM "MinGW Makefiles")
 # 设置项目名称
 project(Main VERSION 1.0)
+# 添加选项
+option(DEF_PRINT_MSG "print some message" ON)
+if(DEF_PRINT_MSG)
+    message(STATUS "start config project Main ${PROJECT_LANGUAGE}")
+endif()
 # 添加配置文件
 configure_file(config.txt config.h)
 # 添加可执行目标源文件
